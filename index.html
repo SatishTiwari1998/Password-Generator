@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strong Password Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Left container -->
+
+    <div class="left-container">
+      <div class="about">
+        <h1 style="color: white">About</h1>
+        <p>
+          This password Generator is designed by
+          <strong style="color:black; font-size: 25px; font-weight: 700; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Satish Tiwari</strong> for the fulfillment of project at
+          Newton School.
+        </p>
+        <br />
+        <p>
+          Password Master is very efficient tool for generating strong and
+          unpredicatble random passwords.
+        </p>
+        <br />
+        <p>
+          Keep your accounts safe and avoid security breaches on your social
+          handles, websites, affiliate pages,digital lockers etc. You can also
+          copy the generated password to your <strong style="color: green;">clipboard</strong>. You
+          can also create a list of your passwords used for various
+          accounts,sites etc.
+        </p>
+        <br />
+        <p>
+          Add the site or account you are saving password for, enter your custom
+          password or generate a brand new,add it and save it. You can also
+          <strong style="color: red;">DOWNLOAD</strong> your password list as pdf.
+        </p>
+      </div>
+      <div class="steps">
+        <h1 style="margin-bottom: 25px; width: 57%; color: white">
+          Steps to use Password Master
+        </h1>
+        <ul>
+          <li>Choose Password Length</li>
+          <li>Check atleast one option</li>
+          <li>Generate password</li>
+        </ul>
+      </div>
+      <div class="features">
+        <h1 style="color: white">Features</h1>
+        <ul>
+          <li>Strong Password Upto 20 Characters</li>
+          <li>Password Book</li>
+          <li>Save as PDF</li>
+          <li>Password Generated & Used Counter</li>
+          <li>Copy to Clip Board Option</li>
+          <li>Editable list (Sl.No can't be edited)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Password Master -->
+
+    <div class="mid-container">
+      <div class="app">
+        <h2>Password Master</h2>
+        <h3>Your Choice,Our Security</h3>
+        <div class="result-container">
+          <span id="result"></span>
+          <button class="btn" id="clipboard">
+            <i class="fa fa-clipboard" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="settings">
+          <div class="setting">
+            <label>Password Length</label>
+            <input type="number" id="length" min="4" max="20" value="10" />
+          </div>
+          <div class="setting">
+            <label>Include Uppercase Letters</label>
+            <input type="checkbox" id="uppercase" checked />
+          </div>
+          <div class="setting">
+            <label>Include Lowercase Letters</label>
+            <input type="checkbox" id="lowercase" checked />
+          </div>
+          <div class="setting">
+            <label>Include Numbers</label>
+            <input type="checkbox" id="numbers" checked />
+          </div>
+          <div class="setting">
+            <label>Include Symbols</label>
+            <input type="checkbox" id="symbols" checked />
+          </div>
+        </div>
+        <div class="app-buttons">
+          <button class="btn btn-large" id="generate">Generate</button>
+          <button class="btn btn-add" id="add">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right container part -->
+
+    <div class="right-container">
+      <div class="password-count-container">
+        <div class="count" id="password-count">
+          <h1 id="count-update-saved">0</h1>
+          <p>Passwords generated</p>
+        </div>
+        <div class="count" id="password-count">
+          <h1 id="count-update-generated">0</h1>
+          <p>Passwords Used</p>
+        </div>
+      </div>
+      <div class="input-container">
+        <div class="input-field">
+          <input type="text" placeholder="Password for..." id="name-input" />
+          <input type="text" placeholder="Password" id="password-input" />
+        </div>
+        <div class="input-field-buttons">
+          <button id="save">Save</button>
+          <button id="download">Download</button>
+        </div>
+      </div>
+
+      <table id="table">
+        <tr>
+          <th contenteditable="false">Sl.no</th>
+          <th contenteditable="false">Name</th>
+          <th contenteditable="false">Password</th>
+        </tr>
+      </table>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- PDF DOWNLOAD PLUGINS -->
+
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"
+    ></script>
+    <script type="text/javascript">
+      $("body").on("click", "#download", function () {
+        html2canvas($("#table")[0], {
+          onrendered: function (canvas) {
+            var data = canvas.toDataURL();
+            var docDefinition = {
+              content: [
+                {
+                  image: data,
+                  width: 500,
+                },
+              ],
+            };
+            pdfMake.createPdf(docDefinition).download("my-passwords.pdf");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

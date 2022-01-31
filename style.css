@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #fff;
+	color: #fff;
+	display: grid;
+	grid-gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+	font-family: 'Muli', sans-serif;
+	align-items: center;
+	justify-content: space-between;
+	height: 100vh;
+	width: 100vh;
+	
+}
+
+/* About Part */
+
+.left-container{
+	box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+	padding: 10px;
+	width: 420px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	border-radius: 10px;
+	color:black;
+}
+
+.about{
+	text-align: justify;
+	font-size: 1rem;
+	border-bottom: 1px solid white;
+	margin-bottom: 10px;
+	background: lightblue;
+	border-radius: 10px;
+	padding: 15px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.about h1{
+	border-bottom: 3px solid yellow;
+	border-right: 3px solid yellow;
+	width: 35%;
+	font-size: 2.5rem;
+
+
+}
+.steps{
+	text-align: left;
+	background: lightskyblue;
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 17px;
+}
+.steps ul,.features ul{
+	list-style: square;
+	font-size: 1.2rem;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.steps ul li,.features ul li{
+	margin: 10px;
+}
+
+.features{
+	margin-top: 10px;
+	background: lightsteelblue;
+	padding: 15px;
+	border-radius: 10px;
+}
+.features h1{
+	border-bottom: 3px solid yellow;
+	border-right: 3px solid yellow;
+	width: 48%;
+	font-size: 2.5rem;
+}
+
+
+
+
+
+/* password generator part */
+
+
+label,input{
+    height: 40px;
+    font-size: 1.5em;
+}
+
+p {
+	margin: 5px 0;
+}
+
+h2 {
+	margin: 10px 0 20px;
+	text-align: center;
+    letter-spacing: 2px;
+    font-size: 2em;
+}
+h3{
+	margin: 10px 0 20px;
+	text-align: center;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+    color: rgb(30, 255, 0);
+}
+
+input[type=checkbox] {
+	margin-right: 0;
+}
+
+.mid-container {
+	background-color:lightblue;
+	box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+	padding: 20px;
+	width: 500px;
+	max-width: 100%;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+.app{
+	margin-top: 13px;
+	top: 0px;
+	height:90vh ;
+	width: 100%;
+	background:rgba(51,51,51,0.5);
+	padding: 30px 20px;
+	border-radius: 20px;
+}
+
+.result-container {
+	background-color: #fff;
+    color: black;
+	display: flex;
+	position: relative;
+	font-size: 25px;
+	letter-spacing: 2px;
+	padding: 12px 10px;
+	height: 50px;
+	width: 100%;
+}
+
+.result-container #result {
+  	word-wrap: break-word;
+	max-width: calc(100% - 40px);
+}
+
+.result-container .btn {
+	font-size: 20px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	height: 40px;
+	width: 40px;
+}
+
+.app-buttons{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.btn {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 8px 12px;
+	background-color: #09c528;
+    border-radius: 20px;
+}
+
+.btn-large {
+	width: 40%;
+    height: 50px;
+    font-size: 2em;
+}
+.btn-add{
+	width: 40%;
+	height: 50px;
+	font-size: 2em;
+	background-color:#2A7DA2;
+
+}
+
+.btn-large:hover{
+    background: rgb(233, 7, 7);
+    color: #ecf3ee;
+}
+
+.btn-add:hover{
+    background: rgb(255, 123, 0);
+    color: #ecf3ee;
+}
+
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px 0;
+}
+
+
+
+@media screen and (max-width: 400px) {
+	.result-container {
+		font-size: 14px;
+	}
+}
+
+/* 
+right container */
+
+.right-container
+{
+	position: relative;
+	height: 100vh;
+	background:white ;
+	width: 433px;
+	border-radius: 10px;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+}
+
+.password-count-container{
+	display: flex;
+	background: lightblue;
+	height: auto;
+	border-radius: 20px;
+	margin-top: 2px;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 20px;
+	margin-top: 10px;
+}
+
+.count{
+	background: white;
+	height: 120px;
+	width: 170px;
+	justify-content: center;
+	border-radius: 10%;
+	font-size: 17px;
+	text-align: center;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.count h1{
+	text-align: center;
+	margin-top: 12px;
+	font-size: 3.5rem;
+	color: #03a9f4;
+
+}
+
+.input-container{
+	background:lightseagreen;
+	margin: 10px 0;
+	padding: 10px 0;
+	border-radius: 20px;
+}
+
+.input-field{
+	display: flex;
+	margin-top: 10px;
+	justify-content: space-evenly;
+}
+
+.input-field input{
+	width: 200px;
+	font-size: 15px;
+	outline: none;
+	padding: 5px 10px;
+	border: 2px solid blue;
+
+}
+.input-field-buttons
+{
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.input-field-buttons button{
+	height: 50px;
+	width:100px ;
+	margin-right: 10px;
+	border-radius: 7px;
+	outline: none;
+	font-size: 1.05rem;
+	background:rgba(51,51,51,0.5);
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: white;
+	border: none;
+}
+
+.input-field-buttons button:hover{
+	background: red;
+	color:black
+}
+
+table{
+	background:lightblue;
+	margin-top: 5px;
+	padding: 10px;
+	border-radius: 10px;
+}
+th{
+    text-align: center;
+    background: #ecf3ee;
+    height: 30px;
+    font-size: 1.3em;
+    margin-top: 5px;
+	color:black;
+}
+td{
+    text-align:center;
+    background:white;
+    height: 25px;
+    font-size: 1rem;
+	letter-spacing: 1px;
+	margin-top: 5px;
+}
+
+
+
+
+
+
+
