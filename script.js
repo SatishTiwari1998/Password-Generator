@@ -7,14 +7,14 @@ const symbolsEl = document.getElementById('symbols');
 const generateEl = document.getElementById('generate');
 const clipboard = document.getElementById('clipboard');
 
-const randomFunc = {
+const randomFunc = {                //random function object
 	lower: getRandomLower,
 	upper: getRandomUpper,
 	number: getRandomNumber,
 	symbol: getRandomSymbol
 }
 
-clipboard.addEventListener('click', () => {
+clipboard.addEventListener('click', () => {                  //copy to clipboard function
 	const textarea = document.createElement('textarea');
 	const password = resultEl.innerText;
 	
@@ -26,28 +26,35 @@ clipboard.addEventListener('click', () => {
 	textarea.value = password;
 	document.body.appendChild(textarea);
 	textarea.select();
-	document.execCommand('copy');
+	document.execCommand('copy');    //depricated..........use navigator.clipboard.read() && navigator.clipboard.write()....
 	textarea.remove();
 	alert('Password copied to clipboard');
 });
 
-generate.addEventListener('click', () => {
-	const length = +lengthEl.value;
+generate.addEventListener('click', () => { 
+	const length = lengthEl.value;
 	const hasLower = lowercaseEl.checked;
 	const hasUpper = uppercaseEl.checked;
 	const hasNumber = numbersEl.checked;
 	const hasSymbol = symbolsEl.checked;
+	console.log(hasUpper);///---------------->TRUE if checked else FALSE
 	
 	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 let count=0;  // for generated PasswordCount
+
+////////////////Generate password function/////////////////////////////
+
 function generatePassword(lower, upper, number, symbol, length) {
 	let generatedPassword = '';
-	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+	const typesCount = lower + upper + number + symbol;  //counts the no of types checked
+	console.log(typesCount);
+	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);  //randomFunc object values are passed
+	console.log(typesArr)  ////
 	
 	// Doesn't have a selected type
 	if(typesCount === 0) {
+		alert("Please select atleast one field");
 		return '';
 	}
 	
@@ -67,16 +74,18 @@ function generatePassword(lower, upper, number, symbol, length) {
 	return finalPassword;
 }
 
+////////////////////helper functions in generate password function...............these functions are passed as reference to object randomFunc/////////////////////
+
 function getRandomLower() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);  // 97 to 122
 }
 
 function getRandomUpper() {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+	return String.fromCharCode(Math.floor(Math.random() * 26) + 65); // 65 to 97
 }
 
 function getRandomNumber() {
-	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+	return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);  //48 to 58
 }
 
 function getRandomSymbol() {
